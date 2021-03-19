@@ -1,0 +1,43 @@
+ALGORITHM nombre
+VAR
+ nbMot : INTEGER;
+ i : INTEGER;
+ nbVoy : INTEGER := 0;
+ ch : STRING := "";
+ tab  : ARRAY_OF STRING[];
+ tab2  : ARRAY_OF CHAR[];
+ ch1 : STRING :=""; 
+BEGIN
+
+ WHILE ( ch[ch.length-1]!="." ) DO
+ Write("saisir une phrase se termine par un point"); 
+ Read(ch);
+ END_WHILE
+
+ch1:=ch;
+
+FOR i FROM 1 TO ch.length   DO {
+  
+    tab[i]=substr(ch, 1, pos(' ',ch));
+    Delete(ch,0,pos(' '));
+}
+ tab[tab.length]:=ch;
+
+ nbMot:=tab.length;
+ Write("nombre des mots ="+nbMot);
+
+FOR i FROM 0 TO ch1.length-1   DO {
+  
+    tab2[i]=ch1[i];
+}
+
+ write("nombre des caractères = "+tab2.length);
+
+
+FOR i FROM 0 TO tab2.length   DO {
+    if (tab2[i]=='a'||tab2[i]=='e'||tab2[i]=='i'||tab2[i]=='o'||tab2[i]=='u'||tab2[i]=='y')
+                    nbVoy++;
+}
+ write("nombre des voyelles = "+nbVoy);
+
+END
